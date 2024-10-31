@@ -1,4 +1,5 @@
 #Web App
+%%writefile App.py
 import matplotlib.pyplot as plt
 import datetime
 import plotly.graph_objs as go
@@ -16,7 +17,7 @@ symbol = st.sidebar.text_input('Please enter the stock symbol: ', 'AAPL').upper(
 # Selection for a specific time frame.
 col1, col2 = st.sidebar.columns(2, gap="medium")
 with col1:
-    sdate = st.date_input('Start Date',value=datetime.date(2024,1,1))
+    sdate = st.date_input('Start Date',value=datetime.date(2023,1,1))
 with col2:
     edate = st.date_input('End Date',value=datetime.date.today())
 
@@ -30,7 +31,7 @@ if stock is not None:
 else:
   st.error("Failed to fetch historical data.")
 
-data = yf.download(symbol,start=sdate,end=edate)
+data = yf.download(symbol, start=sdate, end=edate)  # Complete the yf.download call
 if data is not None:
   st.write(data.describe())
   st.line_chart(data['Close'],x_label="Date",y_label="Close")
