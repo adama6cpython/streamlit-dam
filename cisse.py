@@ -9,15 +9,15 @@ import yfinance as yf
 
 # Specify title and logo for the webpage.
 # Set up your web app
-st.set_page_config(layout="wide", page_title="DAM INFO")
+st.set_page_config(layout="wide", page_title="WebApp_Demo")
 
 # Sidebar
 st.sidebar.title("Input Ticker")
-symbol = st.sidebar.text_input('Please enter the stock symbol: ', '  AAPL').upper()
+symbol = st.sidebar.text_input('Please enter the stock symbol: ', 'NVDA').upper()
 # Selection for a specific time frame.
 col1, col2 = st.sidebar.columns(2, gap="medium")
 with col1:
-    sdate = st.date_input('Start Date',value=datetime.date(2023,3,1))
+    sdate = st.date_input('Start Date',value=datetime.date(2024,1,1))
 with col2:
     edate = st.date_input('End Date',value=datetime.date.today())
 
